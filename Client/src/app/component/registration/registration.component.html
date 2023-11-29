@@ -1,1 +1,27 @@
-<p>registration works!</p>
+<router-outlet></router-outlet>
+
+
+<form [formGroup]="form" class="mx-auto p-2" style="width: 600px;">
+ <h1> Sign in to <br>
+  Freelancer's</h1><br>
+
+  <div class="form-outline mb-4">
+    <input type="text" id="form3Example1cg" formControlName="firstname" class="form-control form-control-lg" />
+    <label class="form-label" for="form3Example1cg">firstname</label>
+  </div>
+  <div class="form-outline mb-4">
+    <input type="text" id="form3Example1cg" formControlName="lastname" class="form-control form-control-lg" />
+    <label class="form-label" for="form3Example1cg">Lastname</label>
+  </div>
+  <div class="form-outline mb-4">
+    <input type="text" id="form3Example1cg" formControlName="email" class="form-control form-control-lg" />
+    <label class="form-label" for="form3Example1cg">Email</label>
+  </div>
+  <div class="form-outline mb-4">
+    <input type="password" id="form3Example1cg" formControlName="password" class="form-control form-control-lg" />
+    <label class="form-label" for="form3Example1cg">Password</label>
+  </div>
+    
+    
+    <button type="submit" class="btn btn-primary" (click)="register()">Sign Up</button>
+  </form>

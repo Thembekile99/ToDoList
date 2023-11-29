@@ -16,12 +16,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to my server');
   });
 
-// Handling Error
-process.on("unhandledRejection", err => {
-    console.log(`An error occurred: ${err.message}`)
-    server.close(() => process.exit(1))
-})
 
 
-app.use('./register',require("routes/user"));
+app.use('./register',require("./route"));
 app.listen(PORT, () => console.log(`Server Connected to port ${PORT}`))

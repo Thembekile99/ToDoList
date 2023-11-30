@@ -32,6 +32,9 @@ register(){
 
   this.service.register(this.form.value).subscribe((res:any)=> {
     console.log(res);
+
+  this.router.navigate(['/login']);
+
   })
 }
 

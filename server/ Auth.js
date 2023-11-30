@@ -27,6 +27,35 @@ exports.register = async (req, res, next) => {
     }
   }
 
+  // auth.js
+exports.login = async (req, res, next) => {
+  const { email, password } = req.body
+  // Check if email and password is provided
+  if (!email|| !password) {
+    return res.status(400).json({
+      message: "email or Password not present",
+    })
+  }
 
+try {
+  const user = await User.findOne({ email, password })
+  if (!user) {
+    res.status(401).json({
+      message: "Login not successful",
+      error: "User not found",
+    })
+  } else {
+    res.status(200).json({
+      message: "Login successful",
+      user,
+    })
+  }
+} catch (error) {
+  res.status(400).json({
+    message: "An error occurred",
+    error: error.message,
+  })
+}
 
+}
   

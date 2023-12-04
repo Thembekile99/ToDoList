@@ -2,35 +2,37 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../interface/user'
-import { Task } from '../model/task';
+import { Tasks } from '../interface/tasks';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-private baseUrl = 'http://localhost:3000/api/auth'
+private baseUrl = 'http://localhost:3000/api'
   constructor(private http: HttpClient) { }
 
 // register function
 register(user:User): Observable<User> {
-  return this.http.post<User>(`${this.baseUrl}/register`, user
+  return this.http.post<User>(`${this.baseUrl}/auth/register`, user
 );
 }
 
 // login function
 login(user:User): Observable<User> {
-  return this.http.post<User>(`${this.baseUrl}/login`, user
+  return this.http.post<User>(`${this.baseUrl}/auth/login`, user
 );
 } 
 
-addTask(task:Task): Observable<Task> {
-  return this.http.post<Task>(`${this.baseUrl}/addtask`,task);
+getalltaskFunc():Observable<any>{ 
+  return this.http.get(`${this.baseUrl}/read`)
 }
 
-getallTask(task:Task): Observable<Task[]> {
-  return this.http.post<Task[]>(`${this.baseUrl}/addtask`,task);
+createFunc(task:Tasks) : Observable<any>{
+  return this.http.post<Tasks>(`${this.baseUrl}/add`,task)
 }
-deleteTask(task:Task): Observable<Task> {
-  return this.http.post<Task>(`${this.baseUrl}/addtask`,task);
+
+deletefunc(id:string): Observable<any>{
+  return this.http.get(`${this.baseUrl}/task/${id}`)
 }
+
 }

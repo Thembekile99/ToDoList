@@ -1,46 +1,73 @@
-
+<!-- navbar -->
 <app-navbar></app-navbar>
-<div class="container-flud mt-5">
-    <div class="container">
-        <div class="row mt -4">
 
-            <div class="col"></div>
 
-            <div>
-               
-                
-                    <h4> To Do List</h4>
-                
-                <div>
 
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="enter"
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-sucesss" type="button" >+</button>
-                    </div>
-                    <h4 class="text-primary mt-4">Task :</h4>
-                    <div style="overflow-y: auto;height: 360px;">
-                        <div class="m-3">
-                            <div class="p-2 shadow">
-                                <div  class="input-group row ps -3"> 
-                                    <div class=" card col-md-10 border-0"> </div>
-                                    <button class="btn btn-outline-danger col">Edit</button>
-                                    <div class=" btn btn-outline-danger col">Update</div>
-                                    <div class=" btn btn-outline-danger col">Delete</div>
-                                    
+<!-- body -->
+<div class="container-flud mt-5" [formGroup]="form">
+    <div class="container" >
 
-                                </div>
-                    
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-         
+        <!-- form starts here -->
+        <div class="row mt -4" >
+            <input type="text" class="form-control" placeholder="enter" aria-describedby="button-addon2"
+                formControlName="name">
+
+            <input type="text" class="form-control" placeholder="enter" aria-describedby="button-addon2"
+                formControlName="number">
+            <button class="btn btn-outline-sucesss" type="button" class="btn btn-primary"(click)="create()">Add</button>
+
 
 
         </div>
-    </div>
 
-</div>
+    </div>
+    <!-- form ends here -->
+
+
+
+
+
+    <!-- list starts here -->
+   
+    
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let task of tasks;  let i =index">
+          <tr>
+            <th scope="row">{{i+1}}</th>
+         <td>{{task?.name}}</td>
+         
+         <td>
+        <!-- number here -->
+        {{task?.number}}
+         </td>
+         <td>
+            <!--buttons here  -->
+            <button type="button" class="btn btn-primary">Edit</button>
+            <button type="button" class="btn btn-secondary">Delete</button>
+        
+
+         </td>
+            
+          </tr>
+        </tbody>
+      </table>
+
+    <!-- list ends here -->
+
+
+
+
+
+
+
+
+

@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NavbarComponent } from './ui/navbar/navbar.component';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -17,7 +18,8 @@ import { NavbarComponent } from './ui/navbar/navbar.component';
     RegistrationComponent,
     LoginComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

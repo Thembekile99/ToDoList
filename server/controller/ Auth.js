@@ -1,4 +1,4 @@
-const User = require("./model/User")
+const User = require("../model/User")
 
 
 // auth.js
@@ -56,6 +56,7 @@ try {
     error: error.message,
   })
 }
+
 
 }
   

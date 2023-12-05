@@ -4,23 +4,19 @@
 
 
 <!-- body -->
-<div class="container-flud mt-5" [formGroup]="form">
-  <div class="container">
 
+<div class="container">
 
-    <!-- form starts here -->
-    <div class="row mt -4">
+  <!-- form starts here -->
+  <div class="container-flud mt-5" [formGroup]="form">
+    <div class="row mt-4">
       <input type="text" class="form-control" placeholder="enter" aria-describedby="button-addon2"
         formControlName="name">
 
       <input type="text" class="form-control" placeholder="enter" aria-describedby="button-addon2"
         formControlName="number">
       <button class="btn btn-outline-sucesss" type="button" class="btn btn-primary" (click)="create()">Add</button>
-
-
-
     </div>
-
   </div>
   <!-- form ends here -->
 
@@ -29,8 +25,6 @@
 
 
   <!-- list starts here -->
-
-
   <table class="table">
     <thead>
       <tr>
@@ -66,11 +60,11 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <input type="text" class="form-control" value={{task.name}} aria-describedby="button-addon2"
-                  [(ngModel)]="name">
+                  <input type="text" class="form-control" 
+                    [(ngModel)]="task.name">
 
-                  <input type="text" class="form-control" value={{task.number}} aria-describedby="button-addon2"
-                  [(ngModel)]="number">
+                  <input type="text" class="form-control mt-3" 
+                    [(ngModel)]="task.number">
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

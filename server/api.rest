@@ -4,6 +4,7 @@ GET http://localhost:3000
 
 
 
+
 ###
 POST http://localhost:3000/api/auth/register
 content-type: application/json
@@ -24,3 +25,34 @@ content-type: application/json
     "email": "missgracemgabi@gmail.com",
     "password":"123456"
 }
+
+
+#####create
+
+POST http://localhost:3000/api/add
+content-type: application/json 
+
+{
+      "name": " Going to the gym ",
+      "number": "buying 10 cement"
+
+}
+
+####Read###
+
+GET http://localhost:3000/api/read
+
+
+####Update##
+
+PUT http://localhost:3000/api/task/656dcced176cc1364aa7fe52
+content-type: application/json
+
+{
+    "name": " food",
+    "number": " 1 create beef"
+
+}
+
+###
+DELETE http://localhost:3000/api/task/656d89d92b1a947a980f6e12

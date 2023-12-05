@@ -8,6 +8,9 @@ import { Tasks } from '../interface/tasks';
   providedIn: 'root'
 })
 export class UsersService {
+  remove(id: any) {
+    throw new Error('Method not implemented.');
+  }
 private baseUrl = 'http://localhost:3000/api'
   constructor(private http: HttpClient) { }
 
@@ -32,7 +35,10 @@ createFunc(task:Tasks) : Observable<any>{
 }
 
 deletefunc(id:string): Observable<any>{
-  return this.http.get(`${this.baseUrl}/task/${id}`)
+  return this.http.delete(`${this.baseUrl}/task/${id}`)
 }
 
+updatefunc(id:string, task:Tasks):Observable<any>{
+  return this.http.put(`${this.baseUrl}/task/${id}`,task)
+}
 }

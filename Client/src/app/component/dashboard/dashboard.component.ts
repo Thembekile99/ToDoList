@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Tasks } from 'src/app/interface/tasks';
 import { UsersService } from 'src/app/services/users.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Task } from 'src/app/model/task';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,18 +11,20 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class DashboardComponent {
 
-
-
   tasks: Tasks[] = [];
 
   constructor(private usersService: UsersService) { }
+
+  name: string = '';
+  number: string = '';
+
+
   form = new FormGroup({
     name: new FormControl(''),
     number: new FormControl(''), 
+ })
 
-  
-  
-  })
+
 
   ngOnInit() {
 
@@ -52,7 +55,22 @@ export class DashboardComponent {
   }
 
 //////delete
-
-
-
+delete(id:any){
+  
+  this.usersService.deletefunc(id).subscribe((res:any)=>{
+    window.location.reload();
+  })
 }
+////update
+update(id:any){
+  let task = {
+   name: this.name ||'', 
+   number: this.number ||'', 
+  }
+  this.usersService.updatefunc(id,task).subscribe((res:any) =>{
+    console.log(res);
+  })
+}
+ 
+}
+ 

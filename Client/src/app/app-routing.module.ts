@@ -7,7 +7,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 const routes: Routes = [
 
 {path: `register`,component: RegistrationComponent },
-
+{path: `` ,component: LoginComponent},
 {path: `login` ,component: LoginComponent},
 
 {path: `dashboard` ,component: DashboardComponent}

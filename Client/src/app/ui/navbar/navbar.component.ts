@@ -6,6 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  searchtext:any;
+  
+  searchText: string = "";
+
+  characters = [
+    'going to the gym',
+    '12 pack of milk',
+    '3 beers'
+
+  ]
+
 
 }
